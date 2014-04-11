@@ -16,7 +16,7 @@ module OpenInApp
     protected
       def open_in_app_device?
         mobile_device = request.env[Rack::MobileDetect::X_HEADER]
-        !!(mobile_device && %w(iphone ipod).downcase(mobile_device.downcase))
+        !!(mobile_device && %w(iphone ipod).include?(mobile_device.downcase))
       end
 
       def open_in_app_supported_request?
