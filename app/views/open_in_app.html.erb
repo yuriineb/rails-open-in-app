@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<body>
+<%= link_to '&nbsp;'.html_safe, @open_in_app_url, style: 'font-size: 1px;color: transparent' onblur: 'var APP_OPENED=true;' %>
+<script>
+  (function() {
+    var APP_OPENED = false;
+    function fireEvent(element,event) {
+      if (document.createEvent) { //modern stuff
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent(event, true, true);
+        return !element.dispatchEvent(evt);
+      } else { //old school IE
+        var evt = document.createEventObject();
+        return element.fireEvent('on' + event, evt);
+      }
+    }
+    window.onload = function(){
+      var loadApp = document.getElementById("loadApp");
+      if (loadApp) fireEvent(loadApp,'click');
+    };
+    var clickedAt = +new Date;
+    setTimeout(function() {
+      if (+new Date - clickedAt < 2000 && !APP_OPENED) {
+        var u = window.document.location.href;
+        if (u.indexOf('?') > 0) {
+          u = u + "&opened_in_app=1";
+        } else {
+          u = u + "?opened_in_app=1";
+        }
+        window.location.href = u;
+      }
+    }, 1500);
+  })();
+</script>
+</body>
