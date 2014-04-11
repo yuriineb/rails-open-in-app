@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <body>
-<%= link_to '&nbsp;'.html_safe, @open_in_app_url, style: 'font-size: 1px;color: transparent' onblur: 'var APP_OPENED=true;' %>
+<a id="loadApp" href="<%= @open_in_app_url %>" alt="Open in App" style="font-size: 1px;color: transparent" onblur="var APP_OPENED=true;">&nbsp;</a>
 <script>
   (function() {
     var APP_OPENED = false;
