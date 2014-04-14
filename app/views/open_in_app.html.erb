@@ -21,15 +21,10 @@
     };
     var clickedAt = +new Date;
     setTimeout(function() {
-      // if (+new Date - clickedAt < 2000 && !APP_OPENED) {
-        var u = window.document.location.href;
-        if (u.indexOf('?') > 0) {
-          u = u + "&opened_in_app=1";
-        } else {
-          u = u + "?opened_in_app=1";
-        }
-        window.location.href = u;
-      // }
+      var installed = APP_OPENED || ((+new Date - clickedAt) > 2000);
+      var oia = '_oia=' + (installed ? '1' : '0');
+      var u = window.document.location.href;
+      window.location.href = u + ((u.indexOf('?') > 0) ? "&" : "?") + oia;
     }, 1500);
   })();
 </script>

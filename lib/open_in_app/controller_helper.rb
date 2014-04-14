@@ -23,7 +23,7 @@ module OpenInApp
         request.get? &&
           !request.xhr? &&
           request.format.html? &&
-          params[:opened_in_app].blank?
+          params[:_oia].blank?
       end
 
       def open_in_app_url_present?
