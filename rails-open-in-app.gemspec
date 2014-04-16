@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = OpenInApp::VERSION
   spec.authors       = ["Calvin Yu"]
   spec.email         = ["calvin@scoutmob.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Adds support to redirect specific URLs to their mobile app equivalents}
+  spec.description   = %q{Rails plugin that add supports to redirect specific URLs to their mobile app equivalents.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
